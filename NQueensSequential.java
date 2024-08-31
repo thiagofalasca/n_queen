@@ -21,7 +21,7 @@ public class NQueensSequential {
         return true;
     }
 
-    // Método para resolver o problema recursivamente
+    // Método para resolver o problema recursivamente e medir a memória
     private boolean solve(int row) {
         if (row == size) {
             return true; // Todas as rainhas foram colocadas
@@ -29,6 +29,7 @@ public class NQueensSequential {
         for (int col = 0; col < size; col++) {
             if (isSafe(row, col)) {
                 board[row] = col; // Coloca a rainha na posição segura
+
                 if (solve(row + 1)) {
                     return true; // Solução encontrada
                 }
@@ -38,9 +39,18 @@ public class NQueensSequential {
         return false; // Nenhuma posição é segura
     }
 
-    // Método para imprimir o tabuleiro
+    // Método para imprimir o tabuleiro com labels
     private void printSolution() {
+        // Imprime os rótulos das colunas
+        System.out.print(" \t");
         for (int i = 0; i < size; i++) {
+            System.out.print((char) ('A' + i) + " ");
+        }
+        System.out.println();
+
+        // Imprime o tabuleiro com rótulos de linha
+        for (int i = 0; i < size; i++) {
+            System.out.print((i + 1) + "\t");
             for (int j = 0; j < size; j++) {
                 if (board[i] == j) {
                     System.out.print("Q ");
@@ -55,20 +65,24 @@ public class NQueensSequential {
     public static void main(String[] args) {
 
         Scanner reader = new Scanner(System.in);
-        System.out.println("Enter a number: ");
+        System.out.println("Enter board size: ");
         int size = reader.nextInt(); // Tamanho do tabuleiro NxN
         reader.close();
 
         NQueensSequential nQueens = new NQueensSequential(size);
+        
+        // Captura o tempo inicial e a memória usada
         long startTime = System.currentTimeMillis();
 
         if (nQueens.solve(0)) {
             nQueens.printSolution();
         } else {
-            System.out.println("Nenhuma solução encontrada.");
+            System.out.println("No solutions found.");
         }
-        
-        long endTime = System.currentTimeMillis(); // Marca o fim do tempo
-        System.out.println("Tempo de execução: " + (endTime - startTime) + " milissegundos");
+
+        // Captura o tempo final e a memória usada
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("Execution time: " + (endTime - startTime) + " ms");
     }
 }
