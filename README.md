@@ -7,7 +7,7 @@ O grupo desenvolveu as duas soluções exigidas, uma solução no modelo sequenc
 - Threads --> NQueensOptimized.java
 
 Os testes foram realizados utilizando o auxilio de um benchmark e se encontra dentro da seguinte estrutura:
-```bash
+```
   nqueens/demo/
   ├── src/
   │   ├── main/java/nqueens/
