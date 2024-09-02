@@ -98,3 +98,12 @@ O gráfico acima mostra que a implementação otimizada tem um crescimento mais 
 - **Escalabilidade:** A versão otimizada demonstra ser mais escalável, aproveitando a arquitetura de sistemas multicore para lidar com cargas de trabalho maiores de forma eficiente.
 
 Essas conclusões são suportadas pelos resultados dos benchmarks realizados, conforme visualizado no gráfico de desempenho fornecido.
+
+---
+
+## Contribuição dos Membros do Grupo
+
+- **Gustavo Kenji:** Realizou a análise dos resultados.
+- **João Victor Lobbo:** Realizou os testes do benchmark.
+- **Thiago Falasca:** Desenvolveu o código sequencial.
+- **Vicente Damasceno:** Implementou o código paralelo e executou os testes na máquina local.
