@@ -11,7 +11,7 @@ public class NQueensSequentialBenchmark {
 
     private NQueensSequential nQueensSequential;
 
-    @Param({"4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30"})
+    @Param({"8", "12", "16", "20", "24", "28", "32"})
     public int boardSize;
 
     @Setup
@@ -21,9 +21,9 @@ public class NQueensSequentialBenchmark {
     }
 
     @Benchmark
-    @Warmup(iterations = 1, time = 3, timeUnit = TimeUnit.SECONDS)
-    @Measurement(iterations = 2, time = 5, timeUnit = TimeUnit.SECONDS)
-    @Fork(1)
+    @Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
+    @Measurement(iterations = 2, time = 2, timeUnit = TimeUnit.SECONDS) 
+    @Fork(1) // reduzindo forks para 1
     public void testNQueensSequential() {
         nQueensSequential.solveAndPrint();
     }

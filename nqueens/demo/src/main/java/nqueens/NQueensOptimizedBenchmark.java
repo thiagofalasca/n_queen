@@ -11,17 +11,17 @@ public class NQueensOptimizedBenchmark {
 
     private NQueensOptimized nQueensOptimized = new NQueensOptimized();
 
-    @Param({"4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30"})
+    @Param({"8", "12", "16", "20", "24", "28", "32"})
     public int boardSize;
 
     @Setup
     public void setUp() {
-        nQueensOptimized.setBenchmarkMode(true); // Define modo de benchmark
+        nQueensOptimized.setBenchmarkMode(true);
     }
 
     @Benchmark
-    @Warmup(iterations = 1, time = 3, timeUnit = TimeUnit.SECONDS)
-    @Measurement(iterations = 2, time = 5, timeUnit = TimeUnit.SECONDS)
+    @Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
+    @Measurement(iterations = 2, time = 2, timeUnit = TimeUnit.SECONDS) 
     @Fork(1)
     public void testNQueensOptimized() {
         nQueensOptimized.solveNQueens(boardSize);
